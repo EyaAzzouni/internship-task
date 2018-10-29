@@ -1,0 +1,37 @@
+[
+    {
+        "id": 0,
+        "date": "2013-03-11",
+        "salesType": "THE REFORMER",
+        "bookingText": "Btext5555555555555",
+        "amount": 9111.1
+    },
+    {
+        "id": 1,
+        "date": "2011-05-08",
+        "salesType": "THE HELPER",
+        "bookingText": "Btext4",
+        "amount": 2111.1
+    },
+    {
+        "id": 2,
+        "date": "2017-04-01",
+        "salesType": "THE PERFORMER",
+        "bookingText": "Btext3",
+        "amount": 5111.1
+    },
+    {
+        "id": 3,
+        "date": "2019-04-12",
+        "salesType": "THE INDIVIDUALIST",
+        "bookingText": "Btext2",
+        "amount": 4111.1
+    },
+    {
+        "id": 4,
+        "date": "2018-05-03",
+        "salesType": "THE ANALYST",
+        "bookingText": "Btext1",
+        "amount": 8111.1
+    }
+]

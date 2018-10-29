@@ -1,0 +1,87 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>Sales Detail</h2>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <b>
+        {{pageTitle}}
+      </b>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <br>
+
+  <mat-card-content>
+    <form [formGroup]="detailForm" novalidate (ngSubmit)="save()" autocomplete="off">
+
+      <div class="form-group" >
+
+      <div [ngClass]="{'has-error': dateMessage}">
+
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Enter date" formControlName="date">
+          </mat-form-field>
+
+        <div class="help-block" style="color: red">
+            <span *ngIf="dateMessage">
+              {{dateMessage}}
+            </span>
+        </div>
+      </div>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Sales Type" formControlName="salesType">
+      </mat-form-field>
+
+      <div class="help-block" style="color: red"
+           *ngIf="detailForm.get('salesType').errors && (detailForm.get('salesType').dirty || detailForm.get('salesType').touched)">
+        salesType is required.
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="Booking Text" formControlName="bookingText">
+      </mat-form-field>
+
+      <div class="help-block" style="color: red"
+           *ngIf="detailForm.get('bookingText').errors && (detailForm.get('bookingText').dirty || detailForm.get('bookingText').touched)">
+        bookingText is required.
+      </div>
+      <br>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="amount" formControlName="amount">
+      </mat-form-field>
+
+      <div class="help-block" style="color: red">
+            <span *ngIf="amountMessage">
+              {{amountMessage}}
+            </span>
+      </div>
+
+      <br>
+      <br>
+
+      <div style="text-align: center">
+        <div class="form-group row">
+          <div class="col-md-4">
+            <button mat-stroked-button color="primary" type="button" [routerLink]="['/welcome']">Cancel
+              <mat-icon>cancel</mat-icon>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button mat-raised-button color="primary" type="submit" [disabled]="!detailForm.valid || !detailForm.dirty">Save
+              <mat-icon>save</mat-icon>
+            </button>
+          </div>
+          <div class="col-md-4">
+            <button mat-raised-button color="primary" type="button" (click)="deleteSales(sales)">Delete
+              <mat-icon>delete</mat-icon>
+            </button>
+          </div>
+        </div>
+      </div>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>

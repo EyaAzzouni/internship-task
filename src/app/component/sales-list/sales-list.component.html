@@ -1,0 +1,49 @@
+<mat-card>
+  <mat-card-header>
+    <mat-card-title>
+      <h2>Sales List Viewer</h2>
+    </mat-card-title>
+    <mat-card-subtitle>
+      <b>
+        You can sort List by date or amount and filter in the input
+      </b>
+    </mat-card-subtitle>
+  </mat-card-header>
+  <br>
+  <mat-card-content>
+    <section class="example-section" >
+      <label class="example-margin">Sort by:</label>
+      <mat-radio-group [(ngModel)]="labelPosition">
+        <mat-radio-button class="example-margin" value="date">Date</mat-radio-button>
+        <mat-radio-button class="example-margin" value="amount">Amount</mat-radio-button>
+      </mat-radio-group>
+    </section>
+
+      <mat-form-field class="example-full-width">
+        <input matInput placeholder="search" [(ngModel)]="searchText">
+      </mat-form-field>
+
+    <table class="table table-hover">
+      <thead>
+      <tr>
+        <th scope="col">Date</th>
+        <th scope="col">SalesType</th>
+        <th scope="col">TextBooking</th>
+        <th scope="col">amount</th>
+      </tr>
+      </thead>
+      <tbody>
+      <tr *ngFor="let sales of salesList | sortBy: labelPosition | filter: searchText" (click)="navigate(sales)">
+        <td>{{sales.date | date : 'dd.MM.yyyy'}}</td>
+        <td>{{sales.salesType}}</td>
+        <td>{{sales.bookingText | cut: 10}}</td>
+        <td>{{sales.amount | currency: 'EUR'}}</td>
+      </tr>
+      </tbody>
+    </table>
+
+  </mat-card-content>
+  <br>
+
+
+</mat-card>
